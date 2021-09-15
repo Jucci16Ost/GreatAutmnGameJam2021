@@ -74,7 +74,7 @@ namespace Assets.Scripts.MazeGeneration
 
             var pathCandidates = SetPath(center).ToList();
             var random = new System.Random();
-            while (pathCandidates.Any() && pathCandidates.Count < 300)
+            while (pathCandidates.Any())
             {
                 var candidate = pathCandidates[random.Next(0, pathCandidates.Count)];
                 if (_visited.Contains(candidate))
