@@ -240,8 +240,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30cb099dbecfaa0409d6448ab184c44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wall: {fileID: 11400000, guid: 91673bd2e56149b40834c7471a787b44, type: 2}
-  _floor: {fileID: 11400000, guid: cf8233ce0e8e20741b9427582652bb7b, type: 2}
+  _wall: {fileID: 11400000, guid: aff69a23960456745b1f5785abcf8003, type: 2}
+  _floor: {fileID: 11400000, guid: c332af2b9e2ce934393ae953a6944826, type: 2}
   _goal: {fileID: 0}
   _floorTileMap: {fileID: 1094983736}
   _wallTileMap: {fileID: 913821465}
