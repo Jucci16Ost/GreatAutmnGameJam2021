@@ -976,6 +976,7 @@ GameObject:
   m_Component:
   - component: {fileID: 442365744}
   - component: {fileID: 442365743}
+  - component: {fileID: 442365745}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -1011,6 +1012,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &442365745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442365742}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30cb099dbecfaa0409d6448ab184c44a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _wall: {fileID: 11400000, guid: 91673bd2e56149b40834c7471a787b44, type: 2}
+  _floor: {fileID: 11400000, guid: cf8233ce0e8e20741b9427582652bb7b, type: 2}
+  _goal: {fileID: 0}
+  _floorTileMap: {fileID: 335405731}
+  _wallTileMap: {fileID: 1594707471}
 --- !u!1 &828615765
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,7 +1302,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 14
-      m_TileSpriteIndex: 22
+      m_TileSpriteIndex: 23
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1314,7 +1332,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 14
-      m_TileSpriteIndex: 6
+      m_TileSpriteIndex: 22
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2845,8 +2863,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 5890802291462866855, guid: 4170abc1d21c4e54eb4947eb07efe2e8, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 8702983502247992480, guid: 4170abc1d21c4e54eb4947eb07efe2e8, type: 3}
   - m_RefCount: 1
@@ -2878,9 +2896,9 @@ Tilemap:
   - m_RefCount: 4
     m_Data: {fileID: 2938713064063477589, guid: 4170abc1d21c4e54eb4947eb07efe2e8, type: 3}
   - m_RefCount: 1
+    m_Data: {fileID: 5890802291462866855, guid: 4170abc1d21c4e54eb4947eb07efe2e8, type: 3}
+  - m_RefCount: 1
     m_Data: {fileID: 9111861566590087381, guid: 4170abc1d21c4e54eb4947eb07efe2e8, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   - m_RefCount: 4
     m_Data: {fileID: -1850221377675050483, guid: 4170abc1d21c4e54eb4947eb07efe2e8, type: 3}
   - m_RefCount: 2
