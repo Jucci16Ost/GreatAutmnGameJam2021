@@ -96,9 +96,9 @@ namespace Assets.Scripts.MazeGeneration
         /// </summary>
         private void FillWallMap()
         {
-            for (var i = 0; i < MazeContext.Width; i++)
+            for (var i = -20; i < MazeContext.Width + 20; i++)
             {
-                for (var j = 0; j < MazeContext.Height; j++)
+                for (var j = -20; j < MazeContext.Height + 20; j++)
                 {
                     _wallTileMap.SetTile(new Vector3Int(i, j, 0), _wall);
                 }
