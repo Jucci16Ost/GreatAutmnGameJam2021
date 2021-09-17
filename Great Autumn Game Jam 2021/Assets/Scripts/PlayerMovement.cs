@@ -14,7 +14,7 @@ namespace Assets.Scripts
         /// Player Movement Speed
         /// </summary>
         [SerializeField]
-        private readonly float movementSpeed = 5;
+        private readonly float movementSpeed = 4;
 
         /// <summary>
         /// Animator used to animate character.
