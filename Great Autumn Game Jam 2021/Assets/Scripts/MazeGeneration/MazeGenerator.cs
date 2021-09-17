@@ -213,6 +213,10 @@ namespace Assets.Scripts.MazeGeneration
             return (pos.x < 0 || pos.x >= _width) || (pos.y < 0 || pos.y >= _height);
         }
 
+        /// <summary>
+        /// Create portal, then place it in the top center of the maze.
+        /// </summary>
+        /// <param name="pos">Position to place the portal. Be sure that this is a walkable tile.</param>
         private void ConfigurePortal(Vector3Int pos)
         {
             var portal = Instantiate(_goal, pos + new Vector3(.5f, .5f, 0), Quaternion.identity);
