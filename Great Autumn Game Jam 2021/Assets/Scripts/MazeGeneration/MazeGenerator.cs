@@ -52,6 +52,24 @@ namespace Assets.Scripts.MazeGeneration
         private GameObject _player;
 
         /// <summary>
+        /// Width of Maze
+        /// </summary>
+        [SerializeField]
+        private int _width = 10;
+
+        /// <summary>
+        /// Height of Maze
+        /// </summary>
+        [SerializeField]
+        private int _height = 10;
+
+        /// <summary>
+        /// Next Scene to load.
+        /// </summary>
+        [SerializeField] 
+        private string _nextSceneName = "Maze_Easy_1";
+
+        /// <summary>
         /// Start is called before the first frame update
         /// </summary>
         [UsedImplicitly]
@@ -66,13 +84,16 @@ namespace Assets.Scripts.MazeGeneration
         /// </summary>
         private void GenerateMaze()
         {
-            var maxX = MazeContext.Width;
-            var maxY = MazeContext.Height;
-            var center = new Vector3Int(maxX / 2, maxY / 2, 0);
-            _visited.Add(center);
+            var maxX = _width;
+            var maxY = _height;
+            var startPos = new Vector3Int(maxX / 2, 1, 0);
+            var portalGoalPos = new Vector3Int(maxX/2, maxY, 0);
+
+            var closestPortalPos = startPos;
+            _visited.Add(startPos);
             FillWallMap();
 
-            var pathCandidates = SetPath(center).ToList();
+            var pathCandidates = SetPath(startPos).ToList();
             var random = new System.Random();
             while (pathCandidates.Any())
             {
@@ -86,9 +107,14 @@ namespace Assets.Scripts.MazeGeneration
                 pathCandidates.AddRange(SetPath(candidate));
                 pathCandidates = pathCandidates.Distinct().ToList();
                 pathCandidates.Remove(candidate);
+
+                var distanceFromPortal = Vector3Int.Distance(portalGoalPos, candidate);
+                var currentClosest = Vector3Int.Distance(closestPortalPos, portalGoalPos);
+                closestPortalPos = currentClosest < distanceFromPortal ? closestPortalPos : candidate;
             }
 
-            _player.transform.position = center;
+            _player.transform.position = startPos + new Vector3(.5f, .5f, 0);
+            ConfigurePortal(closestPortalPos);
         }
 
         /// <summary>
@@ -96,9 +122,9 @@ namespace Assets.Scripts.MazeGeneration
         /// </summary>
         private void FillWallMap()
         {
-            for (var i = -20; i < MazeContext.Width + 20; i++)
+            for (var i = -20; i < _width + 20; i++)
             {
-                for (var j = -20; j < MazeContext.Height + 20; j++)
+                for (var j = -20; j < _height + 20; j++)
                 {
                     _wallTileMap.SetTile(new Vector3Int(i, j, 0), _wall);
                 }
@@ -182,9 +208,20 @@ namespace Assets.Scripts.MazeGeneration
         /// </summary>
         /// <param name="pos">Tile position to check</param>
         /// <returns>True if provided position is on the perimeter of valid play.</returns>
-        private static bool IsEdgePos(Vector3Int pos)
+        private bool IsEdgePos(Vector3Int pos)
         {
-            return (pos.x < 0 || pos.x >= MazeContext.Width) || (pos.y < 0 || pos.y >= MazeContext.Height);
+            return (pos.x < 0 || pos.x >= _width) || (pos.y < 0 || pos.y >= _height);
+        }
+
+        /// <summary>
+        /// Create portal, then place it in the top center of the maze.
+        /// </summary>
+        /// <param name="pos">Position to place the portal. Be sure that this is a walkable tile.</param>
+        private void ConfigurePortal(Vector3Int pos)
+        {
+            var portal = Instantiate(_goal, pos + new Vector3(.5f, .5f, 0), Quaternion.identity);
+            var portalScript = portal.GetComponent<Portal>() ?? portal.GetComponentInChildren<Portal>();
+            portalScript.SetNextScene(_nextSceneName);
         }
     }
 }
