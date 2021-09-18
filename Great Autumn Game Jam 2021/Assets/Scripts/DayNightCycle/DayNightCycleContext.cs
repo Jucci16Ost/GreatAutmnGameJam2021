@@ -5,12 +5,17 @@ namespace Assets.Scripts.DayNightCycle
         /// <summary>
         /// Current Time of day
         /// </summary>
-        private static int _timeOfDay = 6;
+        private static int _timeOfDay = 11;
 
         /// <summary>
         /// Get or set the current time of day.
         /// </summary>
         public static int TimeOfDay { get => GetTimeOfDay(); set => SetTimeOfDay(value); }
+
+        /// <summary>
+        /// Scene Light intensity
+        /// </summary>
+        public static float LightIntensity { get; set; } = 1f;
 
         /// <summary>
         /// Get the current time of day
