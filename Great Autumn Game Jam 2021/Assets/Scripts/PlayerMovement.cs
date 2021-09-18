@@ -55,8 +55,11 @@ namespace Assets.Scripts
 
         /// The player is killed. Darn.
         public void die() {
-            // TODO death scenario.
-            print("DEAD");
+            // Lock player in place.
+            _playerRigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
+
+            // Trigger death animation.
+            _animator.SetTrigger("Death");
         }
     }
 }
