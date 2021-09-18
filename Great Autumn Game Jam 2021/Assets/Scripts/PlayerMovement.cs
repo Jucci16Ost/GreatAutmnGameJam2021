@@ -22,6 +22,9 @@ namespace Assets.Scripts
         [SerializeField]
         private Animator _animator;
 
+        /// <summary>
+        /// Movement vector
+        /// </summary>
         private Vector2 _movement;
 
         void Start()
