@@ -52,5 +52,11 @@ namespace Assets.Scripts
         {
             _playerRigidBody.MovePosition(_playerRigidBody.position + _movement * movementSpeed * Time.deltaTime);
         }
+
+        /// The player is killed. Darn.
+        public void die() {
+            // TODO death scenario.
+            print("DEAD");
+        }
     }
 }
