@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3428031516210440247}
   - component: {fileID: 3428031516210440246}
   - component: {fileID: 3428031516210440243}
+  - component: {fileID: -5586706721151592290}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -169,3 +170,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverController: {fileID: 0}
+--- !u!114 &-5586706721151592290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3428031516210440244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f2c63c56dc2ac2478b2155120da0727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 6478584530811936330, guid: 793e694de888aac4bb319d3b353c585d, type: 3}
