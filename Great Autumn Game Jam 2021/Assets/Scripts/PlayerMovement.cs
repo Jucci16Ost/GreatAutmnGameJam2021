@@ -1,11 +1,17 @@
 using JetBrains.Annotations;
 using UnityEngine;
 using Assets.Scripts;
+using Assets.Scripts.Constants;
 
 namespace Assets.Scripts
 {
     public class PlayerMovement : MonoBehaviour
     {
+        /// <summary>
+        /// Number of corn collected.
+        /// </summary>
+        public int CornCount { get; private set; }
+
         /// <summary>
         /// Rigid Body Reference
         /// </summary>
@@ -27,6 +33,11 @@ namespace Assets.Scripts
         /// Movement vector
         /// </summary>
         private Vector2 _movement;
+
+        /// <summary>
+        /// UI In game view.
+        /// </summary>
+        private GameObject ui_inGameView;
 
         void Start()
         {
@@ -64,6 +75,31 @@ namespace Assets.Scripts
 
             // Show game over screen
             GetComponent<PlayerGameOver>().onGameOver();
+        }
+
+        /// <summary>
+        /// On trigger enter
+        /// </summary>
+        /// <param name="trigger">Collider triggering collision</param>
+        [UsedImplicitly]
+        private void OnTriggerEnter2D(Collider2D trigger)
+        {
+            if (trigger.gameObject.name == ItemsConstants.CornItem) CollectCorn(trigger.gameObject);
+        }
+
+        /// <summary>
+        /// Collect corn.
+        /// Jimmy can crack corn, but I don't care.
+        /// </summary>
+        /// <param name="corn">Collected corn</param>
+        private void CollectCorn(GameObject corn)
+        {
+            Destroy(corn);
+            ui_inGameView ??= GameObject.Find(UiConstants.InGameViewName);
+            if (ui_inGameView == null) return;
+
+            var viewScript = ui_inGameView.GetComponent<InGameView>();
+            viewScript.IncrementCorn();
         }
     }
 }
