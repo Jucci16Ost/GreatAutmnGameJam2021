@@ -1,5 +1,6 @@
 using JetBrains.Annotations;
 using UnityEngine;
+using Assets.Scripts;
 
 namespace Assets.Scripts
 {
@@ -51,6 +52,18 @@ namespace Assets.Scripts
         private void FixedUpdate()
         {
             _playerRigidBody.MovePosition(_playerRigidBody.position + _movement * movementSpeed * Time.deltaTime);
+        }
+
+        /// The player is killed. Darn.
+        public void die() {
+            // Lock player in place.
+            _playerRigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
+
+            // Trigger death animation.
+            _animator.SetTrigger("Death");
+
+            // Show game over screen
+            GetComponent<PlayerGameOver>().onGameOver();
         }
     }
 }
