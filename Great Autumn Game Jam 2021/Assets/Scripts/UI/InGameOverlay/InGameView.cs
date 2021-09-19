@@ -37,4 +37,12 @@ public class InGameView : MonoBehaviour
     {
         InGameViewModel.Corn--;
     }
+
+    /// <summary>
+    /// Reset View Data
+    /// </summary>
+    public void ResetView()
+    {
+        InGameViewModel.Corn = 0;
+    }
 }
