@@ -357,14 +357,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -5586706721151592290, guid: 600181fc16b249d4fae5d85c0bcb9ad1, type: 3}
-      propertyPath: bullet
-      value: 
-      objectReference: {fileID: 8388539890619960675, guid: 793e694de888aac4bb319d3b353c585d, type: 3}
     - target: {fileID: 3428031516210440243, guid: 600181fc16b249d4fae5d85c0bcb9ad1, type: 3}
       propertyPath: gameOverController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7908078785742326245}
     - target: {fileID: 3428031516210440244, guid: 600181fc16b249d4fae5d85c0bcb9ad1, type: 3}
       propertyPath: m_Name
       value: Player
@@ -752,3 +748,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cfa8610b06014e43944a5df92b6d851, type: 3}
+--- !u!114 &7908078785742326245 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2315868668100384781, guid: 1cfa8610b06014e43944a5df92b6d851, type: 3}
+  m_PrefabInstance: {fileID: 7908078785742326244}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02bb0a34105df414ca6f84686c705c18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
