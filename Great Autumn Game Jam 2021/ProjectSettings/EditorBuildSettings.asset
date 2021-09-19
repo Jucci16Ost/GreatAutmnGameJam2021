@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mazes/Easy/Maze_Easy_3.unity
     guid: ae672de2a2a867843b42bb83097b89ff
+  - enabled: 1
+    path: Assets/Scenes/Mazes/Easy/Maze_Easy_4.unity
+    guid: 158bfb1ca1a43744cb70c0d8bfe7af95
   m_configObjects: {}
