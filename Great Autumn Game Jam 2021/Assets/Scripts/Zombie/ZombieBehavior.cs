@@ -170,6 +170,8 @@ namespace Assets.Scripts
 
             // Disable PlayerCollider so that the player no longer dies on impact
             transform.Find("PlayerCollider").gameObject.SetActive(false);
+            var component = GetComponent<Collider2D>();
+            if (component != null) component.enabled = false;
 
             // Trigger death animation.
             _animator.SetTrigger("Death");
