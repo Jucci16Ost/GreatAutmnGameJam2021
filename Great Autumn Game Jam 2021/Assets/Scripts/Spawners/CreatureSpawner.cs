@@ -1,10 +1,7 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Numerics;
 using Assets.Scripts.Constants;
 using JetBrains.Annotations;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Quaternion = UnityEngine.Quaternion;
@@ -63,6 +60,15 @@ namespace Assets.Scripts.Spawners
         /// Collection of spawned creatures.
         /// </summary>
         private List<GameObject> _creatureCollection = new List<GameObject>();
+
+        /// <summary>
+        /// Called at object creation
+        /// </summary>
+        [UsedImplicitly]
+        private void Start()
+        {
+            UpdateSpawnTime();
+        }
 
         /// <summary>
         /// Called after start and when object is enabled.
@@ -127,6 +133,7 @@ namespace Assets.Scripts.Spawners
                 return false;
             }
 
+            Debug.Log($"Last Spawn Time: {_lastSpawnTime}");
             // Not time for a new spawn
             if (Time.timeSinceLevelLoad < _lastSpawnTime + _currentSpawnDelay) return false;
 
