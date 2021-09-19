@@ -40,6 +40,16 @@ namespace Assets.Scripts
         /// </summary>
         private float _randomMovementTimer;
 
+        /// <summary>
+        /// Determines if the zombie is defeated.
+        /// </summary>
+        private bool isDefeated = false;
+
+        /// <summary>
+        /// Countdown Timer to remove this GameObject after the zombies defeat.
+        /// </summary>
+        private float _removeAfterDefeatTimer = 2.0f;
+
 
         // Start is called before the first frame update
         void Start()
@@ -53,12 +63,12 @@ namespace Assets.Scripts
         // Update is called once per frame
         void Update()
         {
+            // Check if zombie is defeated
+            checkIfDefeated();
+
             // If zombie is idle.
             if(!_inProximityToPlayer) {
                 _idleMovement();
-            }
-            // If zombie is chasing player.
-            else {
             }
 
             /// Animate zombie.
@@ -142,6 +152,30 @@ namespace Assets.Scripts
 
         private bool _randomBool() {
             return (Random.value > 0.5f);
+        }
+
+        private void checkIfDefeated() {
+            if(isDefeated) {
+                _removeAfterDefeatTimer -= Time.deltaTime;
+                if(_removeAfterDefeatTimer <= 0) {
+                    Destroy(this.gameObject);
+                }
+            }
+        }
+
+        /// The zombie is defeated. Woohoo!
+        public void defeat() {
+            // Lock zombie in place.
+            _zombieRigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
+
+            // Disable PlayerCollider so that the player no longer dies on impact
+            transform.Find("PlayerCollider").gameObject.SetActive(false);
+
+            // Trigger death animation.
+            _animator.SetTrigger("Death");
+
+            // Set delay for dead zombie removal
+            isDefeated = true;
         }
     }
 }
