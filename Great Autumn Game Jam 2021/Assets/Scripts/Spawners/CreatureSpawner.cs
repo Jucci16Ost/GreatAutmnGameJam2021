@@ -116,7 +116,7 @@ namespace Assets.Scripts.Spawners
         /// <summary>
         /// Has it been a long enough duration for a creature to spawn?
         /// </summary>
-        /// <returns></returns>
+        /// <returns>True if creature should spawn</returns>
         protected bool ShouldSpawn()
         {
             // Check if creature count is at max capacity. Reset spawn time if it is so there won't be an immediate spawn.
@@ -144,6 +144,10 @@ namespace Assets.Scripts.Spawners
             _lastSpawnTime = Time.timeSinceLevelLoad;
         }
 
+        /// <summary>
+        /// Get Valid spawn points from provided tile map
+        /// </summary>
+        /// <returns>Spawn locations for creatures</returns>
         protected virtual List<Vector3> GetValidSpawnPoints()
         {
             var bounds = _tileMap.cellBounds;

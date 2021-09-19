@@ -8,6 +8,9 @@ namespace Assets.Scripts.Constants
 {
     public static class PlayerConstants
     {
+        /// <summary>
+        /// Player game object name.
+        /// </summary>
         public const string Name = "Player";
     }
 }
