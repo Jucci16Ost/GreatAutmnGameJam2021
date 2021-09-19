@@ -133,7 +133,6 @@ namespace Assets.Scripts.Spawners
                 return false;
             }
 
-            Debug.Log($"Last Spawn Time: {_lastSpawnTime}");
             // Not time for a new spawn
             if (Time.timeSinceLevelLoad < _lastSpawnTime + _currentSpawnDelay) return false;
 
