@@ -44,7 +44,7 @@ namespace Assets.Scripts
         // Start is called before the first frame update
         void Start()
         {
-            _randomMovementTimer = 2.0f;
+            _randomMovementTimer = 3.0f;
 
             // Get the rididbody component that is attached to the zombie
             _zombieRigidBody = GetComponent<Rigidbody2D>();
