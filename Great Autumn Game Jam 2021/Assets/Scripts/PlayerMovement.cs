@@ -1,5 +1,6 @@
 using JetBrains.Annotations;
 using UnityEngine;
+using Assets.Scripts;
 
 namespace Assets.Scripts
 {
@@ -60,6 +61,9 @@ namespace Assets.Scripts
 
             // Trigger death animation.
             _animator.SetTrigger("Death");
+
+            // Show game over screen
+            GetComponent<PlayerGameOver>().onGameOver();
         }
     }
 }
