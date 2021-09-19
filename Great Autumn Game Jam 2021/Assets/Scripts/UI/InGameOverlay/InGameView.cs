@@ -13,15 +13,6 @@ public class InGameView : MonoBehaviour
     /// </summary>
     [SerializeField] private GameObject _cornLabel;
 
-    /// <summary>
-    /// Called after startup and when object is enabled.
-    /// </summary>
-    [UsedImplicitly]
-    private void Awake()
-    {
-        // _model ??= new InGameViewModel(); 
-    }
-
     // Update is called once per frame
     void Update()
     {
