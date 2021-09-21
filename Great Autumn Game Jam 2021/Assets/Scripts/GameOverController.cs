@@ -11,11 +11,17 @@ namespace Assets.Scripts
 {
     public class GameOverController : MonoBehaviour
     {
-        private GameObject _inGameView;
+        /// <summary>
+        /// In-Game UI Overlay GameObject
+        /// </summary>
+        public GameObject inGameView;
 
         public void Show() {
             // show screen
             gameObject.SetActive(true);
+
+            // Hide in-game UI.
+            inGameView.SetActive(false);
 
             // update level reached text
             var levelReachedView = GameObject.Find(UiConstants.GameOverLevelReachedName);
@@ -34,7 +40,6 @@ namespace Assets.Scripts
         /// </summary>
         private void ResetView()
         {
-            var inGameView = GameObject.Find(UiConstants.InGameViewName);
             var viewScript = inGameView.GetComponent<InGameView>();
             viewScript.ResetView();
         }

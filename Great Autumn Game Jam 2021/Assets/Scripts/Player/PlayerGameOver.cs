@@ -18,6 +18,9 @@ namespace Assets.Scripts
                 delay -= Time.deltaTime;
                 if(delay <= 0) {
                     gameOverController.Show();
+                    // Reset [gameOver] value. The above should only
+                    // be called once on a Game Over.
+                    gameOver = false;
                 }
             }
         }
