@@ -13,13 +13,20 @@ public class InGameView : MonoBehaviour
     /// </summary>
     [SerializeField] private GameObject _cornLabel;
 
+    /// <summary>
+    /// Level Label
+    /// </summary>
+    [SerializeField] private GameObject _levelLabel;
+
     // Update is called once per frame
     void Update()
     {
-        var label = _cornLabel.GetComponent<Text>() ?? _cornLabel.GetComponentInChildren<Text>();
-        if (label == null) return;
+        var cornText = _cornLabel.GetComponent<Text>() ?? _cornLabel.GetComponentInChildren<Text>();
+        var levelText = _levelLabel.GetComponent<Text>() ?? _levelLabel.GetComponentInChildren<Text>();
+        if (cornText == null || levelText == null) return;
 
-        label.text = $"Corn: {InGameViewModel.Corn}";
+        cornText.text = $"Corn: {InGameViewModel.Corn}";
+        levelText.text = $"Level {InGameViewModel.Level}";
     }
 
     /// <summary>
@@ -44,5 +51,6 @@ public class InGameView : MonoBehaviour
     public void ResetView()
     {
         InGameViewModel.Corn = 0;
+        InGameViewModel.Level = 1;
     }
 }
