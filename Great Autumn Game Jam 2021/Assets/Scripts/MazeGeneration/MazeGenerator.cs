@@ -86,16 +86,16 @@ namespace Assets.Scripts.MazeGeneration
         /// </summary>
         private void GenerateMaze()
         {
-            var maxX = _width;
-            var maxY = _height;
             var level = InGameViewModel.Level;
-
             if (level >= 5)
             {
-                maxX = 10 + (2 * level);
-                maxY = 10 + (2 * level);
+                _width = 10 + (2 * level);
+                _height = 10 + (2 * level);
                 UpdateZombieParameters();
             }
+
+            var maxX = _width;
+            var maxY = _height;
 
             var startPos = new Vector3Int(maxX / 2, 1, 0);
             var portalGoalPos = new Vector3Int(maxX/2, maxY, 0);
