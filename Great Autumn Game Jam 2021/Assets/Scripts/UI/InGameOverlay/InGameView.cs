@@ -61,9 +61,12 @@ public class InGameView : MonoBehaviour
         InGameViewModel.Level = 1;
     }
 
+    /// <summary>
+    /// Set Time
+    /// </summary>
     private void SetTime()
     {
-        var time = DayNightCycleContext.TimeOfDay;
+        var time = DayNightCycleContext.TimeOfDay + 1;
         var suffix = time >= 12 ? "pm" : "am";
         if (time > 12) time -= 12;
 
