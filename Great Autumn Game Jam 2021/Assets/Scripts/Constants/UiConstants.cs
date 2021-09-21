@@ -9,5 +9,6 @@ namespace Assets.Scripts.Constants
     public class UiConstants
     {
         public const string InGameViewName = "GameOverlay/InGameView";
+        public const string GameOverLevelReachedName = "GameOverlay/GameOverScreen/LevelReached";
     }
 }
