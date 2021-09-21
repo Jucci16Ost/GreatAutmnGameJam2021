@@ -235,6 +235,9 @@ namespace Assets.Scripts.MazeGeneration
             portalScript.SetNextScene(_nextSceneName);
         }
 
+        /// <summary>
+        /// Update Zombie spawner parameters
+        /// </summary>
         private void UpdateZombieParameters()
         {
             var zombieSpawnerGO = GameObject.Find("MazeEnvironment/ZombieSpawner");
