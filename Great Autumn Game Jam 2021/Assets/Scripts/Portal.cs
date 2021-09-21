@@ -4,6 +4,7 @@ using Assets.Scripts;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Assets.Scripts.UI.InGameOverlay;
 
 public class Portal : MonoBehaviour
 {
@@ -30,6 +31,9 @@ public class Portal : MonoBehaviour
         if (playerMovementScript == null) return;
 
         SceneManager.LoadScene(_nextSceneName);
+
+        // Increment Level.
+        InGameViewModel.Level++;
     }
 
 }
