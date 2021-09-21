@@ -62,6 +62,12 @@ namespace Assets.Scripts.Spawners
         private List<GameObject> _creatureCollection = new List<GameObject>();
 
         /// <summary>
+        /// Set Max Creature Count
+        /// </summary>
+        /// <param name="count">Max number of creatures that can spawn</param>
+        public void SetMaxCreatureCount(int count) => _maxCreatureCount = count;
+
+        /// <summary>
         /// Called at object creation
         /// </summary>
         [UsedImplicitly]

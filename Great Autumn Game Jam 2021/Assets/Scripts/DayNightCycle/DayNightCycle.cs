@@ -23,7 +23,7 @@ namespace Assets.Scripts.DayNightCycle
         /// <summary>
         /// Length of 
         /// </summary>
-        private const float HourLengthInSeconds = 20f;
+        private const float HourLengthInSeconds = 5f;
 
         /// <summary>
         /// Called on object start

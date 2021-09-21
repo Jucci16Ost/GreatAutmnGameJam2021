@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using Assets.Scripts.Spawners;
+using Assets.Scripts.UI.InGameOverlay;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -86,6 +88,15 @@ namespace Assets.Scripts.MazeGeneration
         {
             var maxX = _width;
             var maxY = _height;
+            var level = InGameViewModel.Level;
+
+            if (level >= 5)
+            {
+                maxX = 10 + (2 * level);
+                maxY = 10 + (2 * level);
+                UpdateZombieParameters();
+            }
+
             var startPos = new Vector3Int(maxX / 2, 1, 0);
             var portalGoalPos = new Vector3Int(maxX/2, maxY, 0);
 
@@ -222,6 +233,13 @@ namespace Assets.Scripts.MazeGeneration
             var portal = Instantiate(_goal, pos + new Vector3(.5f, .5f, 0), Quaternion.identity);
             var portalScript = portal.GetComponent<Portal>() ?? portal.GetComponentInChildren<Portal>();
             portalScript.SetNextScene(_nextSceneName);
+        }
+
+        private void UpdateZombieParameters()
+        {
+            var zombieSpawnerGO = GameObject.Find("MazeEnvironment/ZombieSpawner");
+            var zombieSpawner = zombieSpawnerGO?.GetComponent<ZombieSpawner>();
+            zombieSpawner?.SetMaxCreatureCount(InGameViewModel.Level);
         }
     }
 }

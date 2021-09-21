@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.DayNightCycle;
 using Assets.Scripts.UI.InGameOverlay;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -18,15 +19,21 @@ public class InGameView : MonoBehaviour
     /// </summary>
     [SerializeField] private GameObject _levelLabel;
 
+    /// <summary>
+    /// Time Label
+    /// </summary>
+    [SerializeField] private GameObject _timeLabel;
+
     // Update is called once per frame
     void Update()
     {
+        SetTime();
         var cornText = _cornLabel.GetComponent<Text>() ?? _cornLabel.GetComponentInChildren<Text>();
         var levelText = _levelLabel.GetComponent<Text>() ?? _levelLabel.GetComponentInChildren<Text>();
         if (cornText == null || levelText == null) return;
 
         cornText.text = $"Corn: {InGameViewModel.Corn}";
-        levelText.text = $"Level {InGameViewModel.Level}";
+        levelText.text = $"Level: {InGameViewModel.Level}";
     }
 
     /// <summary>
@@ -52,5 +59,16 @@ public class InGameView : MonoBehaviour
     {
         InGameViewModel.Corn = 0;
         InGameViewModel.Level = 1;
+    }
+
+    private void SetTime()
+    {
+        var time = DayNightCycleContext.TimeOfDay;
+        var suffix = time >= 12 ? "pm" : "am";
+        if (time > 12) time -= 12;
+
+        var timeText = _timeLabel.GetComponent<Text>() ?? _timeLabel.GetComponentInChildren<Text>();
+        if (timeText == null) return;
+        timeText.text = $"Time: {time}{suffix}";
     }
 }
