@@ -142,6 +142,10 @@ PrefabInstance:
       propertyPath: _height
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 6879417790553373860, guid: 427daa3eff58f294e97053d5de065234, type: 3}
+      propertyPath: _nextSceneName
+      value: Maze_Easy_5
+      objectReference: {fileID: 0}
     - target: {fileID: 8692779907726822715, guid: 427daa3eff58f294e97053d5de065234, type: 3}
       propertyPath: m_RootOrder
       value: 0
